@@ -1,0 +1,16 @@
+{
+	"image": "mcr.microsoft.com/devcontainers/universal:2",
+	"features": {
+		"ghcr.io/devcontainers-contrib/features/elixir-asdf:2": {
+			"elixirVersion": "latest",
+			"erlangVersion": "latest"
+		}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"mjmcloug.vscode-elixir"
+			]
+		}
+	}
+}
