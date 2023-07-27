@@ -1,9 +1,7 @@
-# $ iex
-# iex> c "bmi.ex"
-# iex> import BMI
-# iex> classify(weight, height)
+
 defmodule BMI do
-  def classify(weight, height) do
+  def classify(weight, height)
+      when (is_integer(weight) or is_float(weight)) and (is_integer(height) or is_float(height)) do
     bmi = _calculate(weight, height)
 
     case _classify(bmi) do
@@ -12,6 +10,10 @@ defmodule BMI do
       :overweight -> IO.puts("BMI: #{bmi} Category: Overweight")
       :"💀" -> IO.puts("Please go see a Doctor ASAP 💀")
     end
+  end
+
+  def classify(w, h) do
+    raise ArgumentError, "Got weight #{inspect w} and height as #{inspect h}"
   end
 
   defp _classify(bmi) when bmi < 16, do: :"💀"
